@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from rezume.models import (
-    Resume,
+    Rezume,
 
 )
 
@@ -15,5 +15,5 @@ class ResumeAdmin(admin.ModelAdmin):
     )
 
 admin.site.register(
-    Resume, ResumeAdmin,
+    Rezume, ResumeAdmin,
 )

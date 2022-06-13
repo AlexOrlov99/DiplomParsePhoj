@@ -29,20 +29,20 @@
                 <span class="input__file-button-text">Choose docx file</span>
             </label>
             <div id="file-name"></div>
-            <input type="submit" value="send" id="send_file_btn" class="input__file-button">
+            <input type="submit" value="send file" id="send_file_btn" class="input__file-button">
         </form>
-        <div id="modalmain">
-            <div id="addmodalwindow">
+        <div id="modalmain" class="modalmain">
+            <div id="addmodalwindow" class="addmodalwindow">
                 <form method="post" id="form_correct_data">
-                    <input type="text" name="full_name" placeholder="full_name">
-                    <input type="email" name="email" placeholder="email">
-                    <input type="text" name="phone_number" placeholder="phone number">
-                    <input type="text" name="education" placeholder="education">
-                    <input type="text" name="experience" placeholder="experience">
-                    <input type="text" name="skills" placeholder="skills">
-                    <input type="submit" value="send" id="send_resume_btn" class="input__file-button">
+                    <input type="text" name="full_name" class="strfield" placeholder="full_name">
+                    <input type="email" name="email" class="strfield"placeholder="email">
+                    <input type="text" name="phone_number" class="strfield" placeholder="phone number">
+                    <textarea name="education" class="textfield" placeholder="education"></textarea>
+                    <textarea name="experience" class="textfield" placeholder="experience"></textarea>
+                    <textarea name="skills" class="textfield" placeholder="skills"></textarea>
+                    <input type="submit" value="send" id="send_resume_btn" class="resume_form_btn">
                 </form>
-                <button id="back_to_page">Back to page</button>
+                <button id="back_to_page" class="resume_form_btn">Back to page</button>
             </div>
         </div>
         <div class="post">

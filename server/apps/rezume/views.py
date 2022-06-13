@@ -10,7 +10,7 @@ from rest_framework.views import APIView
 from rest_framework.viewsets import ViewSet
 
 from rezume.models import (
-    Resume,
+    Rezume,
     )
 from rezume.serializers import (
     ResumeSerializer, 
@@ -19,8 +19,8 @@ from rezume.serializers import (
 from rezume.management.commands.parsedoc import DocRezume
 
 
-class ResumeViewSet(ViewSet):
-    queryset: QuerySet = Resume.objects.all()
+class RezumeViewSet(ViewSet):
+    queryset: QuerySet = Rezume.objects.all()
     permission_classes: tuple = (
             permissions.AllowAny,
         )        
@@ -72,10 +72,10 @@ class ResumeViewSet(ViewSet):
             serializer.save()
 
             return DRF_Response(
-                f'Объект создан'
+                serializer.data
             )
         return DRF_Response(
-            'Объект не создан'
+            'Объект не dftjhrednb'
         )
 
     def destroy(self, request, *args, **kwargs):

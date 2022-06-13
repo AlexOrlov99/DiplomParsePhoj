@@ -10,7 +10,7 @@ from rest_framework.routers import DefaultRouter
 
 from apps.auths.views import CustomUserViewSet
 from apps.rezume.views import (
-    ResumeViewSet,
+    RezumeViewSet,
     )
 
 from rest_framework_simplejwt.views import (
@@ -41,7 +41,7 @@ if settings.DEBUG:
 router: DefaultRouter = DefaultRouter()
   
 router.register('auths', CustomUserViewSet)
-router.register('resume', ResumeViewSet)
+router.register('resume', RezumeViewSet)
 
 urlpatterns += [
     path('api/v1/', include(router.urls)),

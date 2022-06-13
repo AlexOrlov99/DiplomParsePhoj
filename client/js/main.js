@@ -41,9 +41,10 @@ async function getResume(){
         data.forEach(element => {
             document.querySelector('.post').innerHTML += `
             <div class="content">
-                <h1>Full name: ${element.full_name}</h1>
-                <h2>Email: ${element.email}<h2>
-                <h2>Phone: ${element.phone_number}<h2>
+                <h2>Full name: ${element.full_name}</h2>
+                <h3>Email: ${element.email}<h3>
+                <h3>Phone: ${element.phone_number}<h3>
+                <h3>Skills: ${element.skills}<h3>
             </div>
             `
         });
@@ -92,7 +93,6 @@ chooseFile.onclick = function(){
         document.getElementById ('file-name').innerHTML = 'Имя файла: ' + file;
         console.log(file)
     }
-
 }
 
 backToPageBtn.onclick = function(){
@@ -116,7 +116,7 @@ function getDataInValue(form, datafield){
     if (datafield != null){
         form.value = datafield
     }else{
-        datafield = datafield.placeholer
+        datafield = datafield.placeholder
     }
 }
 formSendFile.onsubmit = async(e) => {
@@ -127,7 +127,6 @@ formSendFile.onsubmit = async(e) => {
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data.skills)
         modelMain.style.display = 'block'
         addModalWindow.style.display = 'block'
         getDataInValue(formResume.full_name, data.full_name)
@@ -136,23 +135,6 @@ formSendFile.onsubmit = async(e) => {
         getDataInValue(formResume.education, data.education)
         getDataInValue(formResume.experience, data.experience)
         getDataInValue(formResume.skills, data.skills)
-
-        // formResume.full_name.value = data.full_name
-        // formResume.email.value = data.email
-        // formResume.phone_number.value = data.phone_number
-        // formResume.education.value = data.education
-        // formResume.experience.value = data.experience
-        // formResume.skills.value = data.skills
-    
-        // data.forEach(element => {
-        //     document.querySelector('.post').innerHTML += `
-        //     <div class="content">
-        //         <h1>Full name: ${element.full_name}</h1>
-        //         <h2>Email: ${element.email}<h2>
-        //         <h2>Phone: ${element.phone_number}<h2>
-        //     </div>
-        //     `
-        // });
     })
 }
 

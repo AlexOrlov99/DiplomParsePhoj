@@ -1,35 +1,24 @@
 from datetime import datetime
 
 from django.db.models import (
-    Model,
     QuerySet,
-    ManyToManyField,
-    ForeignKey,
-    OneToOneField,
     CharField,
     TextField,
-    IntegerField,
-    DateTimeField,
     FileField,
     EmailField,
-    DateField,
-    ImageField,
-    PROTECT,
-    CASCADE,
+
 )
 from abstracts.models import AbstractDateTime
-from auths.models import CustomUser
+
+# class ResumeQuerySet(QuerySet):
+
+#     def get_not_deleted(self) -> QuerySet:
+#         return self.filter(
+#             datetime_deleted__isnull=True
+#         )
 
 
-class ResumeQuerySet(QuerySet):
-
-    def get_not_deleted(self) -> QuerySet:
-        return self.filter(
-            datetime_deleted__isnull=True
-        )
-
-
-class Resume(AbstractDateTime):
+class Rezume(AbstractDateTime):
 
     FILE_TYPE = 'docx'
 
@@ -66,7 +55,8 @@ class Resume(AbstractDateTime):
         default='',
     )
   
-    objects = ResumeQuerySet().as_manager()
+    # objects = ResumeQuerySet().as_manager()
+
 
     def __str__(self) -> str:
         return f'{self.full_name} | {self.email}'

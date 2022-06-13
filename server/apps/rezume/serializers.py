@@ -1,11 +1,11 @@
 from rest_framework.serializers import ModelSerializer
 from rezume.models import (
-  Resume,
+  Rezume,
   )
 
 class ResumeSerializer(ModelSerializer):
   class Meta():
-    model = Resume
+    model = Rezume
     fields =(
             'full_name',
             'email',
@@ -18,7 +18,7 @@ class ResumeSerializer(ModelSerializer):
 
 class FileSerializer(ModelSerializer):
   class Meta():
-    model = Resume
+    model = Rezume
     fields = (
       'file',
     )
