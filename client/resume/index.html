@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="/client/css/buttonstyle.css"> -->
+</head>
+<body>
+    <main class="disable">
+        <form method="post" name="formfile" class="input__wrapper" id="formfile" enctype="multipart/form-data">
+            <input name="file" type="file" id="choose_file" class=" input__file">
+            <label for="choose_file" class="input__file-button">
+                <span class="input__file-button-text">Choose docx file</span>
+            </label>
+            <div id="file-name"></div>
+            <input type="submit" value="send file" id="send_file_btn" class="input__file-button">
+        </form>
+        <div id="modalmain" class="modalmain">
+            <div id="addmodalwindow" class="addmodalwindow">
+                <form method="post" id="form_correct_data">
+                    <input type="text" name="full_name" class="strfield" placeholder="full_name">
+                    <input type="email" name="email" class="strfield"placeholder="email">
+                    <input type="text" name="phone_number" class="strfield" placeholder="phone number">
+                    <textarea name="education" class="textfield" placeholder="education"></textarea>
+                    <textarea name="experience" class="textfield" placeholder="experience"></textarea>
+                    <textarea name="skills" class="textfield" placeholder="skills"></textarea>
+                    <input type="submit" value="send" id="send_resume_btn" class="resume_form_btn">
+                </form>
+                <button id="back_to_page" class="resume_form_btn">Back to page</button>
+            </div>
+        </div>
+        <div class="post">
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

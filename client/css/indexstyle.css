@@ -1,0 +1,43 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url(/images/wall_2.jpg);
+}
+.form_authorization{
+    width: 400px;
+    height: 300px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    background-color: rgba(255, 255, 255, 0.8);
+    align-items: center;
+    justify-content: center;
+}
+.form_authorization.hidden {
+    display: none;
+}
+.form_authorization input{
+    padding-left: 15px;
+    border-radius: 10px;
+    height: 15%;
+    width: 90%;
+    border: none;
+    transition: all 0.3s;
+}
+
+.submit{
+    background-color: #f71234;
+    font-size: 20px;
+    color: white;
+}
+
+.disable{
+    opacity: 0;
+    visibility: hidden;
+}

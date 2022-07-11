@@ -16,10 +16,7 @@ class CustomUserSerializer(ModelSerializer):
     email = EmailField(read_only=True)
     is_active = BooleanField(read_only=True)
     is_staff = BooleanField(read_only=True)
-    # date_joined = DateTimeField(read_only=True)
-    # datetime_created = DateTimeField(read_only=True)
-    # datetime_updated = DateTimeField(read_only=True)
-    # datetime_deleted = DateTimeField(read_only=True)
+
 
     class Meta:
         model = CustomUser
@@ -28,8 +25,4 @@ class CustomUserSerializer(ModelSerializer):
             'email',
             'is_active',
             'is_staff',
-            # 'date_joined',
-            # 'datetime_created',
-            # 'datetime_updated',
-            # 'datetime_deleted',
         )

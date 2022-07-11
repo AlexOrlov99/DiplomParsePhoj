@@ -2,8 +2,8 @@ window.oncontextmenu = function(event){
     event.preventDefault()
 }
 
-let refreshToken = localStorage.getItem('refresh')
-let formAuthorization = document.forms.authorization
+// let refreshToken = localStorage.getItem('refresh')
+// let formAuthorization = document.forms.authorization
 let formSendFile = document.getElementById('formfile')
 let sendFileBtn = document.getElementById('send_file_btn')
 let chooseFile = document.getElementById('choose_file')
@@ -13,17 +13,9 @@ let addModalWindow = document.getElementById('addmodalwindow')
 let formResume = document.getElementById('form_correct_data')
 let sendResumeBtn = document.getElementById('send_resume_btn')
 
-if (formAuthorization) {
-    if (refreshToken) {
-        mainContent()
-    } else {
-        authorizationUser()
-    }
-}
+
 
 function mainContent(){
-    formAuthorization.classList.add('disable')
-    document.querySelector('main').classList.remove('disable')
     getResume()
 }
 
@@ -37,8 +29,7 @@ async function getResume(){
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data)
-        data.forEach(element => {
+        data.results.forEach(element => {
             document.querySelector('.post').innerHTML += `
             <div class="content">
                 <h2>Full name: ${element.full_name}</h2>
@@ -51,37 +42,6 @@ async function getResume(){
     })
     .catch(err => {
         console.log(err);
-    })
-}
-
-function authorizationUser(){
-    formAuthorization.addEventListener('submit', (e) => {
-        e.preventDefault()
-        let formData = new FormData(formAuthorization)
-        let xhr = new XMLHttpRequest()
-        xhr.open('POST', 'http://localhost:8000/api/v1/token/')
-        xhr.responseType = 'json'
-        xhr.send(formData)
-
-        xhr.onload = () => {
-            if(xhr.status != 200 && xhr.readyState != 4){
-                console.log(`Error. Status: ${xhr.status} 
-                    <=> ${xhr.statusText} <==> ${xhr.readyState}`);
-            }else{
-                console.log(`Complete connect: ${xhr.status}`);
-                let tokens = xhr.response
-                if(tokens.access){
-                    localStorage.setItem('access', tokens.access)
-                }
-                if(tokens.refresh){
-                    localStorage.setItem('refresh', tokens.refresh)
-                }
-
-                setTimeout(() => {
-                    location.reload()
-                }, 1000);
-            }
-        }
     })
 }
 
@@ -112,14 +72,8 @@ function serializeForm(formNode) {
     return data
 }
 
-function getDataInValue(form, datafield){
-    if (datafield != null){
-        form.value = datafield
-    }else{
-        datafield = datafield.placeholder
-    }
-}
 formSendFile.onsubmit = async(e) => {
+    formResume.reset()
     e.preventDefault();
     let response = await fetch('http://localhost:8000/api/v1/resume/pars/',{
         method: 'POST',
@@ -129,12 +83,12 @@ formSendFile.onsubmit = async(e) => {
     .then(data => {
         modelMain.style.display = 'block'
         addModalWindow.style.display = 'block'
-        getDataInValue(formResume.full_name, data.full_name)
-        getDataInValue(formResume.email, data.email)
-        getDataInValue(formResume.phone_number, data.phone_number)
-        getDataInValue(formResume.education, data.education)
-        getDataInValue(formResume.experience, data.experience)
-        getDataInValue(formResume.skills, data.skills)
+        formResume.full_name.value = data.full_name
+        formResume.email.value = data.email
+        formResume.phone_number.value = data.phone_number
+        formResume.education.value = data.education
+        formResume.experience.value = data.experience
+        formResume.skills.value = data.skills
     })
 }
 
@@ -160,3 +114,5 @@ sendResumeBtn.onclick = function(){
         }
     })        
 }
+
+mainContent()

@@ -7,6 +7,7 @@ class ResumeSerializer(ModelSerializer):
   class Meta():
     model = Rezume
     fields =(
+            'id',
             'full_name',
             'email',
             'phone_number',

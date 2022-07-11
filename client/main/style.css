@@ -5,42 +5,15 @@
 
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.form_authorization{
-    width: 400px;
-    height: 300px;
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 35px;
-    background-color: rgb(255, 118, 27);
-    box-shadow: 0 0 20px rgb(255, 66, 8);
-    align-items: center;
-    justify-content: center;
-}
-.form_authorization.hidden {
-    display: none;
-}
-.form_authorization input{
-    padding-left: 15px;
-    border-radius: 10px;
-    height: 15%;
-    width: 90%;
-    border: none;
-    transition: all 0.3s;
+    background: url(/images/wall_2.jpg);
 }
 
 .submit{
-    background-color: #c72a41;
+    background-color: #f71234;
     font-size: 20px;
     color: white;
 }
 
-.disable{
-    opacity: 0;
-    visibility: hidden;
-}
 
 .post {
     display: flex;
@@ -53,7 +26,7 @@ body{
     padding: 10px;
     margin: 20px;
     border-radius: 10px;
-    background-color: #0fdfb5;
+    background-color: rgba(255, 255, 255, 0.8);
     color: white;
     border: 3px solid black;
     width: 500px;
@@ -122,4 +95,42 @@ body{
     cursor: pointer;
     margin: 0 auto;
     border-radius: 10px;
+  }
+  .input__wrapper {
+    width: 100%;
+    /* position: relative; */
+    margin: 15px 0;
+    text-align: center;
+  }
+   
+  .input__file {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+  }
+   
+  .input__file-button-text {
+    line-height: 1;
+    margin-top: 1px;
+    text-align: center;
+ 
+  }
+   
+  .input__file-button {
+    width: 100%;
+    max-width: 290px;
+    height: 60px;
+    background: rgb(27, 188, 155);
+    color: #fff;
+    font-size: 1.125rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content:  center;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0 auto;
+  }
+#logout {
+    background: rgb(255, 6, 6);
   }
